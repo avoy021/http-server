@@ -1,1 +1,22 @@
+# --- MSVC Build Outputs ---
+*.obj
 *.exe
+*.pdb
+*.ilk
+*.lib
+*.dll
+
+# --- Visual Studio / MSVC Debugging & Cache ---
+.vs/
+Debug/
+Release/
+x64/
+x86/
+*.sdf
+*.suo
+*.user
+*.log
+
+# --- VS Code specific 
+.vscode/ipch/
+.vscode/msvc.cache
