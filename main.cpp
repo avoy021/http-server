@@ -61,6 +61,8 @@ int main() {
         cout << host << " port: " << ntohs(client.sin_port) << endl;
     }
 
-    WSACleanup();
+    // close listening socket
+    closesocket(listening);
+
     return 0;
 }
