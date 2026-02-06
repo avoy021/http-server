@@ -45,7 +45,22 @@ int main() {
     if(clientSocket == INVALID_SOCKET) {
         cerr << "Client Socket is Invalid" << endl;
     }
-    
+
+    // check client info: getnameinfo() for dns(or ip),port
+    char host[NI_MAXHOST];
+    char service[NI_MAXSERV];
+
+    ZeroMemory(host, NI_MAXHOST);
+    ZeroMemory(service, NI_MAXSERV);
+
+    if(getnameinfo((sockaddr *)&client, clientSize, host, NI_MAXHOST, service, NI_MAXSERV, 0) == 0) {
+        cout << host << " port: " << service << endl;
+    }
+    else {
+        inet_ntop(AF_INET, &client.sin_addr, host, NI_MAXHOST);
+        cout << host << " port: " << ntohs(client.sin_port) << endl;
+    }
+
     WSACleanup();
     return 0;
 }
