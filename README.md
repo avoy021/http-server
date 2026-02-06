@@ -93,7 +93,9 @@ server.exe
 
 Without MSVC:
 
+```
 g++ server.cpp -o server.exe -lws2_32
+```
 
 ---
 
